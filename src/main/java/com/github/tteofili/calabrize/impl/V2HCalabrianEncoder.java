@@ -45,7 +45,7 @@ public class V2HCalabrianEncoder implements CalabrianEncoder {
 
     private static final String UTF_8 = "UTF-8";
 
-    private static final BitSet vowels = new BitSet(10);
+    private static final BitSet vowels = new BitSet(19);
 
     static {
         vowels.set('a');
@@ -57,12 +57,15 @@ public class V2HCalabrianEncoder implements CalabrianEncoder {
         vowels.set('E');
         vowels.set('i');
         vowels.set('ì');
+        vowels.set('í');
         vowels.set('I');
         vowels.set('o');
         vowels.set('ò');
+        vowels.set('ó');
         vowels.set('O');
         vowels.set('u');
         vowels.set('ù');
+        vowels.set('ú');
         vowels.set('U');
     }
 
