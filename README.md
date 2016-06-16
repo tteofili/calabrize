@@ -24,12 +24,12 @@ ever fancied what Dante's Divina Commedia inception would look like in Calabrian
 ```
 Nhl mhzzh dhl chmmhn dh nhstrh vhth 
 mh rhtrhvhh phr hnh shlvh hschrh 
-ché lh dhrhtth vhh hrh smhrrhth. 
-       hhh qhhnth h dhr qhhl hrh è chsh dhrh 
+chh lh dhrhtth vhh hrh smhrrhth. 
+       hhh qhhnth h dhr qhhl hrh h chsh dhrh 
 hsth shlvh shlvhgghh h hsprh h fhrth 
 chh nhl phnshhr rhnhvh lh phhrh! 
-       Thnt’è hmhrh chh phch è phù mhrth; 
+       Thnt’h hmhrh chh phch h phh mhrth; 
 mh phr trhtthr dhl bhn ch’h’ vh trhvhh, 
-dhrò dh l’hltrh chsh ch’h’ v’hh schrth.
+dhrh dh l’hltrh chsh ch’h’ v’hh schrth.
 -- Inferno, I, 1-9
 ```

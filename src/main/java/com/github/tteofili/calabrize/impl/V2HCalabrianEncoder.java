@@ -49,14 +49,20 @@ public class V2HCalabrianEncoder implements CalabrianEncoder {
 
     static {
         vowels.set('a');
+        vowels.set('à');
         vowels.set('A');
         vowels.set('e');
+        vowels.set('è');
+        vowels.set('é');
         vowels.set('E');
         vowels.set('i');
+        vowels.set('ì');
         vowels.set('I');
         vowels.set('o');
+        vowels.set('ò');
         vowels.set('O');
         vowels.set('u');
+        vowels.set('ù');
         vowels.set('U');
     }
 
