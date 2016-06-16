@@ -62,11 +62,15 @@ public class V2HCalabrianEncoder implements CalabrianEncoder {
 
     @Override
     public void encode(InputStream input, OutputStream output, String charsetName) throws IOException {
+        InputStream checkedInput = checkNotNull(input, "Impossible to translate a null InputStream to Calabrian.");
+        OutputStream checkedOutput = checkNotNull(output, "Impossible to write Calabrian to a null OutputStream.");
+        String checkedCharsetName = checkNotNull(charsetName, "We know that Calabrian looks like a proper char set, but it is required in order to make it human readable.");
+
         InputStreamReader reader = null;
         OutputStreamWriter writer = null;
         try {
-            reader = new InputStreamReader(input, charsetName);
-            writer = new OutputStreamWriter(output, charsetName);
+            reader = new InputStreamReader(checkedInput, checkedCharsetName);
+            writer = new OutputStreamWriter(checkedOutput, checkedCharsetName);
             encode(input, output);
         } finally {
             close(reader);
@@ -76,18 +80,23 @@ public class V2HCalabrianEncoder implements CalabrianEncoder {
 
     @Override
     public void encode(Reader input, Writer output) throws IOException {
+        Reader checkedInput = checkNotNull(input, "Impossible to translate a null Reader to Calabrian.");
+        Writer checkedOutput = checkNotNull(output, "Impossible to write Calabrian to a null Writer.");
+
         int i;
-        while ((i = input.read()) != -1) {
+        while ((i = checkedInput.read()) != -1) {
             if (vowels.get(i)) {
-                output.append('h');
+                checkedOutput.append('h');
             } else {
-                output.append((char) i);
+                checkedOutput.append((char) i);
             }
         }
     }
 
     public String encode(String text) {
-        StringReader input = new StringReader(text);
+        String checkedText = checkNotNull(text, "Impossible to translate a null text to Calabrian.");
+
+        StringReader input = new StringReader(checkedText);
         StringWriter output = new StringWriter();
         try {
             encode(input, output);
@@ -98,6 +107,13 @@ public class V2HCalabrianEncoder implements CalabrianEncoder {
             close(output);
         }
         return output.toString();
+    }
+
+    private static <T> T checkNotNull(T reference, String messagePattern, Object...args) {
+        if (reference == null) {
+            throw new NullPointerException(String.format(messagePattern, args));
+        }
+        return reference;
     }
 
     private static void close(Closeable closeable) {
