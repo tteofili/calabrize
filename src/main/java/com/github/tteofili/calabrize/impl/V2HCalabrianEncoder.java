@@ -18,8 +18,7 @@
  */
 package com.github.tteofili.calabrize.impl;
 
-import java.util.Arrays;
-import java.util.Collection;
+import java.util.BitSet;
 
 import com.github.tteofili.calabrize.CalabrianEncoder;
 
@@ -29,12 +28,25 @@ import com.github.tteofili.calabrize.CalabrianEncoder;
  */
 public class V2HCalabrianEncoder implements CalabrianEncoder {
 
-    private static final Collection<Character> vowels = Arrays.asList('a', 'A', 'e', 'E', 'i', 'I', 'o', 'O', 'u', 'U');
+    private static final BitSet vowels = new BitSet(10);
+
+    static {
+        vowels.set('a');
+        vowels.set('A');
+        vowels.set('e');
+        vowels.set('E');
+        vowels.set('i');
+        vowels.set('I');
+        vowels.set('o');
+        vowels.set('O');
+        vowels.set('u');
+        vowels.set('U');
+    }
 
     public String encode(String text) {
         StringBuilder b = new StringBuilder();
         for (char c : text.toCharArray()) {
-            if (vowels.contains(c)) {
+            if (vowels.get(c)) {
                 b.append('h');
             } else {
                 b.append(c);
