@@ -17,3 +17,19 @@ while (char c in x)
 ```
 
 knowledge engineering for the win!
+
+# see it in action
+ever fancied what Dante's Divina Commedia inception would look like in Calabrian? 
+
+```
+Nhl mhzzh dhl chmmhn dh nhstrh vhth 
+mh rhtrhvhh phr hnh shlvh hschrh 
+ché lh dhrhtth vhh hrh smhrrhth. 
+       hhh qhhnth h dhr qhhl hrh è chsh dhrh 
+hsth shlvh shlvhgghh h hsprh h fhrth 
+chh nhl phnshhr rhnhvh lh phhrh! 
+       Thnt’è hmhrh chh phch è phù mhrth; 
+mh phr trhtthr dhl bhn ch’h’ vh trhvhh, 
+dhrò dh l’hltrh chsh ch’h’ v’hh schrth.
+-- Inferno, I, 1-9
+```
