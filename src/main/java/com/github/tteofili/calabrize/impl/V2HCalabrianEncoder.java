@@ -71,12 +71,12 @@ public class V2HCalabrianEncoder implements CalabrianEncoder {
         OutputStream checkedOutput = checkNotNull(output, "Impossible to write Calabrian to a null OutputStream.");
         String checkedCharsetName = checkNotNull(charsetName, "We know that Calabrian looks like a proper char set, but it is required in order to make it human readable.");
 
-        InputStreamReader reader = null;
-        OutputStreamWriter writer = null;
+        Reader reader = null;
+        Writer writer = null;
         try {
             reader = new InputStreamReader(checkedInput, checkedCharsetName);
             writer = new OutputStreamWriter(checkedOutput, checkedCharsetName);
-            encode(input, output);
+            encode(reader, writer);
         } finally {
             close(reader);
             close(writer);
