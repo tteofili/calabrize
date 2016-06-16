@@ -93,6 +93,7 @@ public class V2HCalabrianEncoder implements CalabrianEncoder {
         }
     }
 
+    @Override
     public String encode(String text) {
         String checkedText = checkNotNull(text, "Impossible to translate a null text to Calabrian.");
 

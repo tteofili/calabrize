@@ -29,16 +29,40 @@ import java.io.Writer;
  */
 public interface CalabrianEncoder {
 
+    /**
+     * Encode an Italian text, read from the input, into Calabrian, written directly to the output.
+     *
+     * @param input the input where the Italian text is read
+     * @param output the output where the Italian text is written
+     * @throws IOException
+     */
     void encode(InputStream input, OutputStream output) throws IOException;
 
+    /**
+     * Encode an Italian text, read from the input, into Calabrian, written directly to the output, specifying the char set.
+     *
+     * @param input the input where the Italian text is read
+     * @param output the output where the Italian text is written
+     * @param charsetName the input/output text char set
+     * @throws IOException if any read/write error occurs
+     */
     void encode(InputStream input, OutputStream output, String charsetName) throws IOException;
 
+    /**
+     * Encode an Italian text, read from the input, into Calabrian, written directly to the output.
+
+     * @param input the input where the Italian text is read
+     * @param output the output where the Italian text is written
+     * @throws IOException if any read/write error occurs
+     */
     void encode(Reader input, Writer output) throws IOException;
 
     /**
-     * encode an Italian text into Calabrian
+     * Encode an Italian text into Calabrian
+     *
      * @param text an Italian text
      * @return a Calabrian text
      */
     String encode(String text);
+
 }
