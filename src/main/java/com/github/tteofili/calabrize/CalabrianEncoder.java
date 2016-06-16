@@ -18,15 +18,27 @@
  */
 package com.github.tteofili.calabrize;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.io.Reader;
+import java.io.Writer;
+
 /**
  * An Italian to Calabrian encoder
  */
 public interface CalabrianEncoder {
+
+    void encode(InputStream input, OutputStream output) throws IOException;
+
+    void encode(InputStream input, OutputStream output, String charsetName) throws IOException;
+
+    void encode(Reader input, Writer output) throws IOException;
 
     /**
      * encode an Italian text into Calabrian
      * @param text an Italian text
      * @return a Calabrian text
      */
-    String encode(CharSequence text);
+    String encode(String text);
 }

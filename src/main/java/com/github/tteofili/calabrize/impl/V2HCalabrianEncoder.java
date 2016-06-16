@@ -18,6 +18,16 @@
  */
 package com.github.tteofili.calabrize.impl;
 
+import java.io.Closeable;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
+import java.io.Reader;
+import java.io.StringReader;
+import java.io.StringWriter;
+import java.io.Writer;
 import java.util.BitSet;
 
 import com.github.tteofili.calabrize.CalabrianEncoder;
@@ -27,6 +37,8 @@ import com.github.tteofili.calabrize.CalabrianEncoder;
  * V2H algorithm transforms each vowel into an 'h' and leaves everything else untouched.
  */
 public class V2HCalabrianEncoder implements CalabrianEncoder {
+
+    private static final String UTF_8 = "UTF-8";
 
     private static final BitSet vowels = new BitSet(10);
 
@@ -43,17 +55,58 @@ public class V2HCalabrianEncoder implements CalabrianEncoder {
         vowels.set('U');
     }
 
-    public String encode(CharSequence text) {
-        StringBuilder b = new StringBuilder();
-        char c;
-        for (int i = 0; i < text.length(); i++) {
-            c = text.charAt(i);
-            if (vowels.get(c)) {
-                b.append('h');
+    @Override
+    public void encode(InputStream input, OutputStream output) throws IOException {
+        encode(input, output, UTF_8);
+    }
+
+    @Override
+    public void encode(InputStream input, OutputStream output, String charsetName) throws IOException {
+        InputStreamReader reader = null;
+        OutputStreamWriter writer = null;
+        try {
+            reader = new InputStreamReader(input, charsetName);
+            writer = new OutputStreamWriter(output, charsetName);
+            encode(input, output);
+        } finally {
+            close(reader);
+            close(writer);
+        }
+    }
+
+    @Override
+    public void encode(Reader input, Writer output) throws IOException {
+        int i;
+        while ((i = input.read()) != -1) {
+            if (vowels.get(i)) {
+                output.append('h');
             } else {
-                b.append(c);
+                output.append((char) i);
             }
         }
-        return b.toString();
+    }
+
+    public String encode(String text) {
+        StringReader input = new StringReader(text);
+        StringWriter output = new StringWriter();
+        try {
+            encode(input, output);
+        } catch (IOException e) {
+            // this should not happen
+        } finally {
+            close(input);
+            close(output);
+        }
+        return output.toString();
+    }
+
+    private static void close(Closeable closeable) {
+        if (closeable != null) {
+            try {
+                closeable.close();
+            } catch (IOException e) {
+                // just swallow it
+            }
+        }
     }
 }
