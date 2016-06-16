@@ -30,12 +30,17 @@ import java.io.StringWriter;
 import java.io.Writer;
 import java.util.BitSet;
 
+import org.apache.felix.scr.annotations.Component;
+import org.apache.felix.scr.annotations.Service;
+
 import com.github.tteofili.calabrize.CalabrianEncoder;
 
 /**
  * An Italian to Calabrian encoder using the V2H algorithm.
  * V2H algorithm transforms each vowel into an 'h' and leaves everything else untouched.
  */
+@Component
+@Service(CalabrianEncoder.class)
 public class V2HCalabrianEncoder implements CalabrianEncoder {
 
     private static final String UTF_8 = "UTF-8";
