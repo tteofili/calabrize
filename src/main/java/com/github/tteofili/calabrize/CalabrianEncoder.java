@@ -50,7 +50,7 @@ public interface CalabrianEncoder {
 
     /**
      * Encode an Italian text, read from the input, into Calabrian, written directly to the output.
-
+     *
      * @param input the input where the Italian text is read
      * @param output the output where the Italian text is written
      * @throws IOException if any read/write error occurs

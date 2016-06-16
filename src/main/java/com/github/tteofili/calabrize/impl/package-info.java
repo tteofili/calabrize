@@ -18,6 +18,6 @@
  */
 
 /**
- * Calabrize encoding APIs.
+ * Calabrize encoding APIs default implementation.
  */
-package com.github.tteofili.calabrize;
+package com.github.tteofili.calabrize.impl;
