@@ -43,9 +43,11 @@ public class V2HCalabrianEncoder implements CalabrianEncoder {
         vowels.set('U');
     }
 
-    public String encode(String text) {
+    public String encode(CharSequence text) {
         StringBuilder b = new StringBuilder();
-        for (char c : text.toCharArray()) {
+        char c;
+        for (int i = 0; i < text.length(); i++) {
+            c = text.charAt(i);
             if (vowels.get(c)) {
                 b.append('h');
             } else {

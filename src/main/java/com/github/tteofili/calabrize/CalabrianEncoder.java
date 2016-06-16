@@ -28,5 +28,5 @@ public interface CalabrianEncoder {
      * @param text an Italian text
      * @return a Calabrian text
      */
-    String encode(String text);
+    String encode(CharSequence text);
 }
