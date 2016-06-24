@@ -11,7 +11,7 @@ after years of development we found that the most accurate algorithm to translat
 var res = ""
 while (char c in x)
   if (c.isVowel) 
-     res+=h
+     res+='h'
   else 
      res+=c
 ```
